@@ -72,7 +72,9 @@ Visit the app at **`http://localhost:3000`**.
 ---
 
 ## 📸 Screenshots
-![alt text](<dopamine-drive-menu - Google Chrome 12-08-2025 20_30_49.png>)
+<img width="1902" height="910" alt="dopamine-drive-menu - Google Chrome 12-08-2025 20_30_49" src="https://github.com/user-attachments/assets/80d6fee2-acdb-48dc-88fb-2ccd41c7de04" />
+
+
 > 
 
 ---
