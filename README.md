@@ -1,7 +1,7 @@
 # 🌟 Dopamine Drive Menu
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Online-brightgreen?style=for-the-badge)](https://dopamine-drive-menu.vercel.app/)
-[![React](https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react)](https://react.dev/)
+[![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)](https://react.dev/)
 [![Material-UI](https://img.shields.io/badge/Material%20UI-5-blue?style=for-the-badge&logo=mui)](https://mui.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
