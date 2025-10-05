@@ -8,7 +8,7 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: dopamine
-  AZURE_WEBAPP_PACKAGE_PATH: '.'
+  AZURE_WEBAPP_PACKAGE_PATH: 'build'
   NODE_VERSION: '20.x'
 
 jobs:
@@ -53,7 +53,7 @@ jobs:
 
       # Step 8: Build the project (ignore warnings in CI)
       - name: Build Project
-        run: CI=false npm run build --if-present
+        run: CI=false npm run build 
 
       # Step 9: Login to Azure
       - name: Azure Login
@@ -71,3 +71,4 @@ jobs:
       # Step 11: Logout from Azure
       - name: Azure Logout
         run: az logout
+
