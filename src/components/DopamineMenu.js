@@ -38,7 +38,7 @@ const dopamineActivities = [
   },
   {
     id: 3,
-    title: "Try a New Coffee Shop",
+    title: "Try a New Coffee Cafe",
     description: "Explore your neighborhood and taste new flavors",
     category: "Adventure",
     duration: "30-60 min",
