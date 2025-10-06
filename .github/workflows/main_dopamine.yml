@@ -3,7 +3,7 @@ name: Dopamine CI CD
 on:
   push:
     branches:
-      - main  # Trigger on pushes to main branch
+      - main
   workflow_dispatch:
 
 env:
@@ -16,59 +16,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repository
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # Step 2: Cache node_modules to speed up builds
-      - name: Cache node modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      # Step 3: Clean workspace (optional but safer)
-      - name: Clean workspace
-        run: rm -rf node_modules
-
-      # Step 4: Set up Node.js environment
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      # Step 5: Install dependencies
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
-      # Step 6: Lint the code (optional, won’t block build)
-      - name: Lint Project
-        run: npm run lint || echo "Lint warnings detected, continuing..."
-
-      # Step 7: Run tests (optional, won’t block deployment)
       - name: Run Tests
         run: npm test || echo "Tests failed, continuing deployment..."
 
-      # Step 8: Build the project (ignore warnings in CI)
       - name: Build Project
-        run: CI=false npm run build 
+        run: CI=false npm run build
 
-      # Step 9: Login to Azure
       - name: Azure Login
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      # Step 10: Deploy to Azure Web App
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
-      # Step 11: Logout from Azure
       - name: Azure Logout
         run: az logout
-
